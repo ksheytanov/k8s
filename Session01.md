@@ -47,7 +47,7 @@ minikube dashboard
 ```
 Look around in the Dashboard. Navigate to the kube-system namespace to view the system pods running kubernetes services.
 
-# Lab 2.1 - First Cluster Interactions
+# Lab 1.2 - First Cluster Interactions
 
 Cd into Session01 folder. View the pod definition manigest with a missing field:
 ```
