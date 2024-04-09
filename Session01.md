@@ -111,3 +111,23 @@ Delete the POD by passing a manifest file to the delete command:
 ```
 kubectl delete -f simple-pod.yaml
 ```
+
+List available Namespaces
+```
+kubectl get namespaces
+```
+
+Get pods from a partigular namespace:
+```
+kubectl get pods -n default
+```
+
+Get pods from all namespaces:
+```
+kubectl get pods -A
+```
+
+Explore -o options to get different outputs
+```
+kubectl get pods -o wide
+```
