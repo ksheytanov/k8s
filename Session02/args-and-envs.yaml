@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-messenger
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    env:
+    - name: message
+      value: "Hello from the other side."
+    args:
+    - /bin/sh
+    - -c
+    - while true; do echo $(date) - $message; sleep 1; done

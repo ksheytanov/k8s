@@ -1,0 +1,12 @@
+#Taken from https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/simple-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-args-only
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    args: ["nginx","-g","daemon off;"]
+    ports:
+    - containerPort: 80
