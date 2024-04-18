@@ -1,0 +1,36 @@
+# Taken from https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/#components
+#
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: lab44web
+spec:
+  selector:
+    matchLabels:
+      app: nginx # has to match .spec.template.metadata.labels
+  serviceName: "nginx"
+  replicas: 3 # by default is 1
+  minReadySeconds: 10 # by default is 0
+  template:
+    metadata:
+      labels:
+        app: nginx # has to match .spec.selector.matchLabels
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: lab44web
+        volumeMounts:
+        - name: www
+          mountPath: /usr/share/nginx/html
+  volumeClaimTemplates:
+  - metadata:
+      name: www
+    spec:
+      accessModes: [ "ReadWriteOnce" ]
+      storageClassName: "myclass"
+      resources:
+        requests:
+          storage: 1Gi

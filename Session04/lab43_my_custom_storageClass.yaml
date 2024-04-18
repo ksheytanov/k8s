@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: myclass
+provisioner: hostpath.csi.k8s.io
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+# reclaimPolicy: Retain is to keep the PV after the PVC is deleted
+# volumeBindingMode: WaitForFirstConsumer will provision the PV only after there is a pod requesting it

@@ -1,0 +1,24 @@
+#Taken from https://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/simple-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab41
+spec:
+  containers:
+  - name: alpine
+    image: alpine
+    ports:
+    - containerPort: 80
+    args:
+    - /bin/sh
+    - -c
+    - while true; do sleep 100; done
+    volumeMounts:
+    - mountPath: /cache
+      name: cache-volume
+    - mountPath: /second_cache
+      name: cache-volume
+  volumes:
+  - name: cache-volume
+    emptyDir:
+      sizeLimit: 500Mi

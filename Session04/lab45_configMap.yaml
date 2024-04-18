@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lab45-configmap-demo
+data:
+  # Can be difined as simple yaml keys and values:
+  log_level: "Info"
+  app.name: "Some App Name"
+
+  # Value of the can be whole file content
+  config.properties: |
+    log_level=Error
+    app.name="Another App Name"    
+  config.json: |
+    {
+      "log_level":"Warn",
+      "app.name":"Yeat Another App app.name:"
+    }
