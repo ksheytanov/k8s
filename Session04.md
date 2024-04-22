@@ -138,25 +138,3 @@ Apply it:
 kubectl apply -f lab44_statefulSet.yaml
 ```
 
-# LAB 4.5 ConfigMap as volume
-
-Create the ConfigMap:
-```
-kubectl apply -f lab45_sonfigMap.yaml
-```
-
-Review the pod definition. Pay attention to env. var and volume definitions.
-
-Create the POD:
-```
-kubectl apply -f lab45_POD_volume_envs_ConfigMap.yaml
-```
-
-Go insite the pod to look around:
-```
-kubectl exec -it lab45-pod -- /bin/sh
-```
-
-List the /config location
-List the env. variables.
-
