@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lab45-pod
+  name: lab52-pod
 spec:
   containers:
     - name: confmapdemo
@@ -11,12 +11,12 @@ spec:
         - name: LOGGING_LEVEL
           valueFrom:
             configMapKeyRef:
-              name: lab45-configmap-demo          # Name of the COnfig Map.
+              name: lab52-configmap-demo          # Name of the Config Map.
               key: log_level                      # Name of the The key to fetch.
         - name: APPLICATION_NAME
           valueFrom:
             configMapKeyRef:
-              name: lab45-configmap-demo
+              name: lab52-configmap-demo
               key: app.name
       volumeMounts:
       - name: config
@@ -25,7 +25,7 @@ spec:
   volumes:
   - name: config
     configMap:
-      name: lab45-configmap-demo
+      name: lab52-configmap-demo
       items:
       - key: "config.properties"
         path: "config.properties"

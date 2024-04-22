@@ -1,14 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysite2
+  name: lab51-deployment
 spec:
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
-  replicas: 10
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -23,3 +18,11 @@ spec:
         ports:
         - containerPort: 80
           name: http
+        volumeMounts:
+          - mountPath: "/usr/share/nginx/html"
+            name: my-storage
+      volumes:
+      - name: my-storage
+        persistentVolumeClaim:
+          claimName: lab51-pvc
+

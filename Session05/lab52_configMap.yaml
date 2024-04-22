@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lab45-configmap-demo
+  name: lab52-configmap-demo
 data:
   # Can be difined as simple yaml keys and values:
   log_level: "Info"
