@@ -5,14 +5,15 @@ metadata:
 data:
   # Can be difined as simple yaml keys and values:
   log_level: "Info"
-  app.name: "Some App Name"
+  app.name: "UPDATE Some App Name"
 
   # Value of the can be whole file content
   config.properties: |
     log_level=Error
+    newline=2
     app.name="Another App Name"    
   config.json: |
     {
       "log_level":"Warn",
-      "app.name":"Yeat Another App app.name:"
+      "app.name":"Another App app.name:"
     }

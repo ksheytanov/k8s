@@ -1,0 +1,22 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: lab62demo
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: lab62gateway
+  rules:
+    - matches:
+      - path:
+          type: PathPrefix
+          value: /vanilla-nginx  
+      backendRefs:
+      - name: nginx-service
+        port: 80
+      filters:
+        - type: URLRewrite
+          urlRewrite:
+            path:
+              type: ReplacePrefixMatch
+              replacePrefixMatch: /
